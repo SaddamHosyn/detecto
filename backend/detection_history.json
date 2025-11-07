@@ -1,0 +1,65 @@
+[
+  {
+    "timestamp": "2025-11-07T22:55:44.410615",
+    "filename": "360_F_360275716_KwTE63jCRknTbo9yrTlSo6d2tp7JV9pg.jpg",
+    "person_count": 7,
+    "average_confidence": 0.4576,
+    "inference_time": 1.958
+  },
+  {
+    "timestamp": "2025-11-07T22:56:17.036830",
+    "filename": "try.jpg",
+    "person_count": 7,
+    "average_confidence": 0.4576,
+    "inference_time": 0.288
+  },
+  {
+    "timestamp": "2025-11-07T23:43:11.692955",
+    "filename": "try.jpg",
+    "person_count": 7,
+    "average_confidence": 0.4576,
+    "inference_time": 1.796
+  },
+  {
+    "timestamp": "2025-11-07T23:48:16.535618",
+    "filename": "try.jpg",
+    "person_count": 7,
+    "average_confidence": 0.4576,
+    "inference_time": 1.785
+  },
+  {
+    "timestamp": "2025-11-08T00:12:56.162414",
+    "filename": "1.jpg",
+    "person_count": 4,
+    "average_confidence": 0.878,
+    "inference_time": 0.755
+  },
+  {
+    "timestamp": "2025-11-08T00:13:37.159163",
+    "filename": "15.jpeg",
+    "person_count": 5,
+    "average_confidence": 0.866,
+    "inference_time": 0.38
+  },
+  {
+    "timestamp": "2025-11-08T00:13:52.427448",
+    "filename": "17.jpg",
+    "person_count": 1,
+    "average_confidence": 0.8882,
+    "inference_time": 0.69
+  },
+  {
+    "timestamp": "2025-11-08T00:13:58.204780",
+    "filename": "6.jpg",
+    "person_count": 9,
+    "average_confidence": 0.7236,
+    "inference_time": 0.119
+  },
+  {
+    "timestamp": "2025-11-08T00:14:15.091456",
+    "filename": "16.jpeg",
+    "person_count": 4,
+    "average_confidence": 0.8354,
+    "inference_time": 0.403
+  }
+]

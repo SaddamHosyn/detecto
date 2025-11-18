@@ -1,65 +1,79 @@
 [
   {
-    "timestamp": "2025-11-07T22:55:44.410615",
-    "filename": "360_F_360275716_KwTE63jCRknTbo9yrTlSo6d2tp7JV9pg.jpg",
-    "person_count": 7,
-    "average_confidence": 0.4576,
-    "inference_time": 1.958
+    "timestamp": "2025-11-18T16:03:54.379311",
+    "filename": "Pink and Green Gradient Modern Business LinkedIn Profile Picture.png",
+    "person_count": 1,
+    "average_confidence": 0.9358,
+    "inference_time": 2.487
   },
   {
-    "timestamp": "2025-11-07T22:56:17.036830",
-    "filename": "try.jpg",
-    "person_count": 7,
-    "average_confidence": 0.4576,
-    "inference_time": 0.288
+    "timestamp": "2025-11-18T16:04:18.007219",
+    "filename": "Screenshot 2025-08-21 154734.png",
+    "person_count": 2,
+    "average_confidence": 0.6054,
+    "inference_time": 0.225
   },
   {
-    "timestamp": "2025-11-07T23:43:11.692955",
-    "filename": "try.jpg",
-    "person_count": 7,
-    "average_confidence": 0.4576,
-    "inference_time": 1.796
+    "timestamp": "2025-11-18T16:04:37.776541",
+    "filename": "Screenshot 2025-10-31 215550.png",
+    "person_count": 1,
+    "average_confidence": 0.8052,
+    "inference_time": 0.313
   },
   {
-    "timestamp": "2025-11-07T23:48:16.535618",
-    "filename": "try.jpg",
+    "timestamp": "2025-11-18T16:05:04.382894",
+    "filename": "11.jpg",
     "person_count": 7,
-    "average_confidence": 0.4576,
-    "inference_time": 1.785
+    "average_confidence": 0.5323,
+    "inference_time": 0.205
   },
   {
-    "timestamp": "2025-11-08T00:12:56.162414",
-    "filename": "1.jpg",
+    "timestamp": "2025-11-18T16:05:28.120858",
+    "filename": "12.jpg",
     "person_count": 4,
-    "average_confidence": 0.878,
-    "inference_time": 0.755
+    "average_confidence": 0.7621,
+    "inference_time": 0.2
   },
   {
-    "timestamp": "2025-11-08T00:13:37.159163",
+    "timestamp": "2025-11-18T16:06:13.774799",
+    "filename": "2.jpg",
+    "person_count": 8,
+    "average_confidence": 0.8217,
+    "inference_time": 0.189
+  },
+  {
+    "timestamp": "2025-11-18T16:09:17.895469",
+    "filename": "2.jpg",
+    "person_count": 8,
+    "average_confidence": 0.813,
+    "inference_time": 1.324
+  },
+  {
+    "timestamp": "2025-11-18T16:10:01.529410",
+    "filename": "2.jpg",
+    "person_count": 8,
+    "average_confidence": 0.8217,
+    "inference_time": 1.457
+  },
+  {
+    "timestamp": "2025-11-18T16:16:37.443188",
     "filename": "15.jpeg",
     "person_count": 5,
-    "average_confidence": 0.866,
-    "inference_time": 0.38
+    "average_confidence": 0.9038,
+    "inference_time": 0.795
   },
   {
-    "timestamp": "2025-11-08T00:13:52.427448",
-    "filename": "17.jpg",
+    "timestamp": "2025-11-18T16:17:04.443089",
+    "filename": "8.jpg",
+    "person_count": 14,
+    "average_confidence": 0.8558,
+    "inference_time": 0.37
+  },
+  {
+    "timestamp": "2025-11-18T16:23:52.497420",
+    "filename": "3.jpg",
     "person_count": 1,
-    "average_confidence": 0.8882,
-    "inference_time": 0.69
-  },
-  {
-    "timestamp": "2025-11-08T00:13:58.204780",
-    "filename": "6.jpg",
-    "person_count": 9,
-    "average_confidence": 0.7236,
-    "inference_time": 0.119
-  },
-  {
-    "timestamp": "2025-11-08T00:14:15.091456",
-    "filename": "16.jpeg",
-    "person_count": 4,
-    "average_confidence": 0.8354,
-    "inference_time": 0.403
+    "average_confidence": 0.9632,
+    "inference_time": 0.455
   }
 ]

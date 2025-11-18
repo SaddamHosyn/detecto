@@ -18,7 +18,7 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 HISTORY_FILE = Path("detection_history.json")
 
 # Load YOLOv8 model once when the server starts (not on every request)
-model = YOLO('yolov8n.pt')
+model = YOLO('yolov8m.pt')
 print(f"✅ YOLOv8 model loaded on: {model.device}")
 
 
@@ -43,8 +43,17 @@ async def detect_people(file: UploadFile = File(...)):
             shutil.copyfileobj(file.file, buffer)
         
         # Run YOLOv8 inference
+        # Use augment=True for better accuracy in challenging conditions
+        # Set to False for faster real-time processing
         start_time = datetime.now()
-        results = model(str(file_path))
+        results = model(
+            str(file_path),
+            conf=0.25,        # Confidence threshold (default: 0.25)
+            iou=0.45,         # IoU threshold for NMS (default: 0.45)
+            imgsz=640,        # Image size (default: 640)
+            augment=False,    # Test-time augmentation (slower but more accurate)
+            agnostic_nms=False  # Class-specific NMS
+        )
         inference_time = (datetime.now() - start_time).total_seconds()
         
         # Extract person detections (class 0 in COCO dataset)

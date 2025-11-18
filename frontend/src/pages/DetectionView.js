@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { detectPeople } from '../services/api';
 import './DetectionView.css';
 
@@ -8,6 +8,16 @@ const DetectionView = () => {
   const [detectionResults, setDetectionResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+
+  const imgRef = useRef(null);
+  const [, setImageLoadedToggle] = useState(false);
+
+const handleImageLoad = () => {
+  // Trigger a state update to re-render after image loads to get correct dimensions
+  setImageLoadedToggle(v => !v);
+};
+
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -68,33 +78,42 @@ const DetectionView = () => {
 
       {error && <div className="error">{error}</div>}
 
-      {imagePreview && (
-        <div className="image-container">
-          <div className="image-wrapper">
-            <img
-              src={imagePreview}
-              alt="Selected"
-              className="detection-image"
-            />
-            {detectionResults && detectionResults.detections.map((detection, index) => (
-              <div
-                key={index}
-                className="bounding-box"
-                style={{
-                  left: `${detection.bbox.x1}px`,
-                  top: `${detection.bbox.y1}px`,
-                  width: `${detection.bbox.x2 - detection.bbox.x1}px`,
-                  height: `${detection.bbox.y2 - detection.bbox.y1}px`,
-                }}
-              >
-                <span className="confidence-label">
-                  {(detection.confidence * 100).toFixed(1)}%
-                </span>
-              </div>
-            ))}
+   {imagePreview && (
+  <div className="image-container">
+    <div className="image-wrapper" style={{ position: 'relative' }}>
+      <img
+        ref={imgRef}
+        src={imagePreview}
+        alt="Selected"
+        className="detection-image"
+        onLoad={handleImageLoad}
+      />
+      {detectionResults && detectionResults.detections.map((detection, index) => {
+        // Calculate scale factor
+        const scaleX = imgRef.current?.naturalWidth / imgRef.current?.clientWidth || 1;
+        const scaleY = imgRef.current?.naturalHeight / imgRef.current?.clientHeight || 1;
+        
+        return (
+          <div
+            key={index}
+            className="bounding-box"
+            style={{
+              left: `${detection.bbox.x1 / scaleX}px`,
+              top: `${detection.bbox.y1 / scaleY}px`,
+              width: `${(detection.bbox.x2 - detection.bbox.x1) / scaleX}px`,
+              height: `${(detection.bbox.y2 - detection.bbox.y1) / scaleY}px`,
+            }}
+          >
+            <span className="confidence-label">
+              {(detection.confidence * 100).toFixed(1)}%
+            </span>
           </div>
-        </div>
-      )}
+        );
+      })}
+    </div>
+  </div>
+)}
+
 
       {detectionResults && (
         <div className="results-section">

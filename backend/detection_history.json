@@ -75,5 +75,40 @@
     "person_count": 1,
     "average_confidence": 0.9632,
     "inference_time": 0.455
+  },
+  {
+    "timestamp": "2025-11-19T11:12:27.947263",
+    "filename": "17.jpg",
+    "person_count": 1,
+    "average_confidence": 0.946,
+    "inference_time": 2.83
+  },
+  {
+    "timestamp": "2025-11-19T11:23:18.629684",
+    "filename": "webcam-capture.jpg",
+    "person_count": 1,
+    "average_confidence": 0.9305,
+    "inference_time": 0.251
+  },
+  {
+    "timestamp": "2025-11-19T11:23:49.060073",
+    "filename": "webcam-capture.jpg",
+    "person_count": 0,
+    "average_confidence": 0,
+    "inference_time": 0.227
+  },
+  {
+    "timestamp": "2025-11-19T11:24:10.160968",
+    "filename": "DEVOPSROADMAP.png",
+    "person_count": 0,
+    "average_confidence": 0,
+    "inference_time": 0.16
+  },
+  {
+    "timestamp": "2025-11-19T11:24:20.162521",
+    "filename": "webcam-capture.jpg",
+    "person_count": 0,
+    "average_confidence": 0,
+    "inference_time": 0.232
   }
 ]

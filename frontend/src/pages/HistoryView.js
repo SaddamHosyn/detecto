@@ -17,7 +17,8 @@ const HistoryView = () => {
     setError(null);
     try {
       const response = await getHistory();
-      setHistory(response.history || []);
+       // Reverse the array so newest entries appear first
+      setHistory((response.history || []).reverse());
     } catch (err) {
       setError('Failed to load history');
       console.error(err);
@@ -45,12 +46,13 @@ const HistoryView = () => {
       return;
     }
 
-    const headers = ['Timestamp', 'Filename', 'People Count', 'Avg Confidence', 'Inference Time (s)'];
+    const headers = ['Timestamp', 'Filename', 'Source', 'People Count', 'Avg Confidence', 'Inference Time (s)'];
     const csvContent = [
       headers.join(','),
       ...history.map(record => [
         new Date(record.timestamp).toLocaleString(),
         record.filename,
+        record.source || 'upload',
         record.person_count,
         record.average_confidence.toFixed(4),
         record.inference_time.toFixed(3)
@@ -124,7 +126,22 @@ const HistoryView = () => {
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{new Date(record.timestamp).toLocaleString()}</td>
-                  <td>{record.filename}</td>
+                  <td>
+                    {record.filename}
+                    {record.source === 'live_webcam' && (
+                      <span style={{
+                        marginLeft: '10px',
+                        padding: '2px 8px',
+                        background: '#ff4444',
+                        color: 'white',
+                        borderRadius: '12px',
+                        fontSize: '10px',
+                        fontWeight: 'bold'
+                      }}>
+                        🔴 LIVE
+                      </span>
+                    )}
+                  </td>
                   <td>{record.person_count}</td>
                   <td>{(record.average_confidence * 100).toFixed(1)}%</td>
                   <td>{record.inference_time.toFixed(3)}s</td>

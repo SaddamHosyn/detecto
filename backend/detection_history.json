@@ -1009,5 +1009,214 @@
     "n8n_action": "loud_noise",
     "average_confidence": 0.9078,
     "inference_time": 1.736
+  },
+  {
+    "timestamp": "2025-12-07T16:09:31.767339",
+    "filename": "webcam-capture.jpg",
+    "person_count": 3,
+    "n8n_action": "low_noise",
+    "average_confidence": 0.6835,
+    "inference_time": 1.531
+  },
+  {
+    "timestamp": "2025-12-07T16:10:06.863514",
+    "filename": "webcam-capture.jpg",
+    "person_count": 3,
+    "n8n_action": "low_noise",
+    "average_confidence": 0.7178,
+    "inference_time": 0.054
+  },
+  {
+    "timestamp": "2025-12-07T16:11:35.541396",
+    "filename": "webcam-capture.jpg",
+    "person_count": 2,
+    "n8n_action": "silence",
+    "average_confidence": 0.7016,
+    "inference_time": 0.051
+  },
+  {
+    "timestamp": "2025-12-07T16:11:54.944510",
+    "filename": "webcam-capture.jpg",
+    "person_count": 2,
+    "n8n_action": "silence",
+    "average_confidence": 0.874,
+    "inference_time": 0.264
+  },
+  {
+    "timestamp": "2025-12-07T16:12:40.417883",
+    "filename": "webcam-capture.jpg",
+    "person_count": 10,
+    "n8n_action": "loud_noise",
+    "average_confidence": 0.4818,
+    "inference_time": 0.238
+  },
+  {
+    "timestamp": "2025-12-07T17:17:30.684093",
+    "filename": "webcam-capture.jpg",
+    "person_count": 1,
+    "n8n_action": "silence",
+    "average_confidence": 0.9374,
+    "inference_time": 2.504
+  },
+  {
+    "timestamp": "2025-12-07T18:24:22.830098",
+    "filename": "webcam-capture.jpg",
+    "person_count": 1,
+    "n8n_action": "silence",
+    "average_confidence": 0.9501,
+    "inference_time": 0.204
+  },
+  {
+    "timestamp": "2025-12-07T20:17:24.538830",
+    "filename": "live-snapshot-20251207-201724.jpg",
+    "person_count": 1,
+    "n8n_action": "silence",
+    "average_confidence": 0.7388,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:27.566503",
+    "filename": "live-snapshot-20251207-201727.jpg",
+    "person_count": 0,
+    "n8n_action": "live_detection",
+    "average_confidence": 0,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:30.569530",
+    "filename": "live-snapshot-20251207-201730.jpg",
+    "person_count": 0,
+    "n8n_action": "live_detection",
+    "average_confidence": 0,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:33.590419",
+    "filename": "live-snapshot-20251207-201733.jpg",
+    "person_count": 1,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.8838,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:36.640549",
+    "filename": "live-snapshot-20251207-201736.jpg",
+    "person_count": 1,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.7971,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:39.659604",
+    "filename": "live-snapshot-20251207-201739.jpg",
+    "person_count": 1,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.7798,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:42.755670",
+    "filename": "live-snapshot-20251207-201742.jpg",
+    "person_count": 3,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.6222,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:45.878198",
+    "filename": "live-snapshot-20251207-201745.jpg",
+    "person_count": 2,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.5617,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:48.973052",
+    "filename": "live-snapshot-20251207-201748.jpg",
+    "person_count": 1,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.7807,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:52.007625",
+    "filename": "live-snapshot-20251207-201752.jpg",
+    "person_count": 3,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.5869,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:55.053634",
+    "filename": "live-snapshot-20251207-201755.jpg",
+    "person_count": 2,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.6466,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:17:58.085391",
+    "filename": "live-snapshot-20251207-201758.jpg",
+    "person_count": 2,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.6587,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:18:01.149135",
+    "filename": "live-snapshot-20251207-201801.jpg",
+    "person_count": 3,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.5644,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:18:04.422089",
+    "filename": "live-snapshot-20251207-201804.jpg",
+    "person_count": 5,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.594,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:18:07.477055",
+    "filename": "live-snapshot-20251207-201807.jpg",
+    "person_count": 3,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.6245,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:18:10.524356",
+    "filename": "live-snapshot-20251207-201810.jpg",
+    "person_count": 2,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.5405,
+    "inference_time": 0.0,
+    "source": "live_webcam"
+  },
+  {
+    "timestamp": "2025-12-07T20:18:13.556701",
+    "filename": "live-snapshot-20251207-201813.jpg",
+    "person_count": 1,
+    "n8n_action": "live_detection",
+    "average_confidence": 0.6372,
+    "inference_time": 0.0,
+    "source": "live_webcam"
   }
 ]

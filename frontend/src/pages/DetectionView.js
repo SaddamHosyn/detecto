@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { detectPeople } from '../services/api';
 import './DetectionView.css';
 
@@ -18,10 +18,29 @@ const DetectionView = () => {
   const canvasRef = useRef(null);
   const [, setImageLoadedToggle] = useState(false);
 
-const handleImageLoad = () => {
-  // Trigger a state update to re-render after image loads to get correct dimensions
-  setImageLoadedToggle(v => !v);
-};
+  // --- HELPER: Determine Alert Class ---
+  const getAlertClass = () => {
+    if (!detectionResults) return '';
+    const action = detectionResults.n8n_action;
+    if (action === 'loud_noise') return 'alert-loud';
+    if (action === 'low_noise') return 'alert-low';
+    if (action === 'silence') return 'alert-safe';
+    return '';
+  };
+
+  const getAlertMessage = () => {
+    if (!detectionResults) return null;
+    const action = detectionResults.n8n_action;
+    if (action === 'loud_noise') return '🚨 CRITICAL ALERT: OVERCROWDED! 🚨';
+    if (action === 'low_noise') return '⚠️ WARNING: Crowd Growing';
+    if (action === 'silence') return '✅ Area Safe';
+    return null;
+  };
+  // -------------------------------------
+
+  const handleImageLoad = () => {
+    setImageLoadedToggle(v => !v);
+  };
 
   const handleVideoReady = () => {
     if (videoRef.current) {
@@ -48,18 +67,14 @@ const handleImageLoad = () => {
     }
   };
 
-  // Set video stream when ref and stream are available
-  React.useEffect(() => {
+  useEffect(() => {
     if (stream && videoRef.current) {
       console.log('Setting video srcObject');
       videoRef.current.srcObject = stream;
-      
-      // Fallback: Auto-enable after 2 seconds if events don't fire
       const timeout = setTimeout(() => {
         console.log('Fallback: Force enabling video after timeout');
         setIsVideoReady(true);
       }, 2000);
-      
       return () => clearTimeout(timeout);
     }
   }, [stream, isVideoReady]);
@@ -83,14 +98,12 @@ const handleImageLoad = () => {
     const video = videoRef.current;
     const canvas = canvasRef.current;
 
-    // Check if video is ready
     if (video.videoWidth === 0 || video.videoHeight === 0) {
       setError('Video stream not ready. Please wait a moment and try again.');
       return;
     }
 
     const context = canvas.getContext('2d');
-
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     context.drawImage(video, 0, 0);
@@ -99,7 +112,6 @@ const handleImageLoad = () => {
     setError(null);
 
     try {
-      // Convert canvas to blob
       const blob = await new Promise((resolve) => {
         canvas.toBlob(resolve, 'image/jpeg', 0.95);
       });
@@ -115,8 +127,6 @@ const handleImageLoad = () => {
       console.log('Detection results:', results);
       
       setDetectionResults(results);
-      
-      // Set the captured frame as preview
       setImagePreview(canvas.toDataURL());
     } catch (err) {
       console.error('Detection error:', err);
@@ -126,15 +136,13 @@ const handleImageLoad = () => {
     }
   };
 
-  // Cleanup webcam on unmount
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       if (stream) {
         stream.getTracks().forEach(track => track.stop());
       }
     };
   }, [stream]);
-
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -169,7 +177,16 @@ const handleImageLoad = () => {
   };
 
   return (
-    <div className="container">
+    // Applied dynamic class here for flashing effect
+    <div className={`container alert-container ${getAlertClass()}`}>
+      
+      {/* Show big banner if alert exists */}
+      {getAlertMessage() && (
+        <div className={`alert-banner banner-${getAlertClass().replace('alert-', '')}`}>
+          {getAlertMessage()}
+        </div>
+      )}
+
       <h1 className="title">Person Detection System</h1>
       
       <div className="mode-toggle">
@@ -263,42 +280,40 @@ const handleImageLoad = () => {
 
       {error && <div className="error">{error}</div>}
 
-   {imagePreview && (
-  <div className="image-container">
-    <div className="image-wrapper" style={{ position: 'relative' }}>
-      <img
-        ref={imgRef}
-        src={imagePreview}
-        alt="Selected"
-        className="detection-image"
-        onLoad={handleImageLoad}
-      />
-      {detectionResults && detectionResults.detections.map((detection, index) => {
-        // Calculate scale factor
-        const scaleX = imgRef.current?.naturalWidth / imgRef.current?.clientWidth || 1;
-        const scaleY = imgRef.current?.naturalHeight / imgRef.current?.clientHeight || 1;
-        
-        return (
-          <div
-            key={index}
-            className="bounding-box"
-            style={{
-              left: `${detection.bbox.x1 / scaleX}px`,
-              top: `${detection.bbox.y1 / scaleY}px`,
-              width: `${(detection.bbox.x2 - detection.bbox.x1) / scaleX}px`,
-              height: `${(detection.bbox.y2 - detection.bbox.y1) / scaleY}px`,
-            }}
-          >
-            <span className="confidence-label">
-              {(detection.confidence * 100).toFixed(1)}%
-            </span>
+      {imagePreview && (
+        <div className="image-container">
+          <div className="image-wrapper" style={{ position: 'relative' }}>
+            <img
+              ref={imgRef}
+              src={imagePreview}
+              alt="Selected"
+              className="detection-image"
+              onLoad={handleImageLoad}
+            />
+            {detectionResults && detectionResults.detections.map((detection, index) => {
+              const scaleX = imgRef.current?.naturalWidth / imgRef.current?.clientWidth || 1;
+              const scaleY = imgRef.current?.naturalHeight / imgRef.current?.clientHeight || 1;
+              
+              return (
+                <div
+                  key={index}
+                  className="bounding-box"
+                  style={{
+                    left: `${detection.bbox.x1 / scaleX}px`,
+                    top: `${detection.bbox.y1 / scaleY}px`,
+                    width: `${(detection.bbox.x2 - detection.bbox.x1) / scaleX}px`,
+                    height: `${(detection.bbox.y2 - detection.bbox.y1) / scaleY}px`,
+                  }}
+                >
+                  <span className="confidence-label">
+                    {(detection.confidence * 100).toFixed(1)}%
+                  </span>
+                </div>
+              );
+            })}
           </div>
-        );
-      })}
-    </div>
-  </div>
-)}
-
+        </div>
+      )}
 
       {detectionResults && (
         <div className="results-section">

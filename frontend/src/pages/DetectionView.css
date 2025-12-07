@@ -275,3 +275,59 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+ 
+
+/* --- Alert Animations --- */
+
+@keyframes flash-red {
+  0% { background-color: #fff; }
+  50% { background-color: #ffe6e6; border-color: #ff0000; }
+  100% { background-color: #fff; }
+}
+
+@keyframes flash-yellow {
+  0% { background-color: #fff; }
+  50% { background-color: #fffbe6; border-color: #ffa500; }
+  100% { background-color: #fff; }
+}
+
+/* Base alert container style */
+.alert-container {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Specific Alert States */
+.alert-loud {
+  animation: flash-red 1s infinite;
+  border: 2px solid #ff4444;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.alert-low {
+  animation: flash-yellow 2s infinite;
+  border: 2px solid #ffbb33;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+}
+
+.alert-safe {
+  border: 2px solid #00c851;
+  background-color: #f0fff4;
+}
+
+/* Alert Banner Text */
+.alert-banner {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.banner-loud { background-color: #ff4444; color: white; }
+.banner-low { background-color: #ffbb33; color: black; }
+.banner-safe { background-color: #00c851; color: white; }

@@ -8,18 +8,27 @@ import json
 import cv2
 import numpy as np
 
+
+# Import the n8n connector function
+from utils.n8n_connector import process_human_count
+
+
 # Create router
 router = APIRouter()
+
 
 # Create directories
 UPLOAD_DIR = Path("uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 
+
 HISTORY_FILE = Path("detection_history.json")
+
 
 # Load YOLOv8 model once when the server starts (not on every request)
 model = YOLO('yolov8m.pt')
 print(f"✅ YOLOv8 model loaded on: {model.device}")
+
 
 
 @router.post("/detect")
@@ -90,11 +99,31 @@ async def detect_people(file: UploadFile = File(...)):
         # Calculate average confidence
         avg_confidence = (total_confidence / person_count) if person_count > 0 else 0
         
+        # --- n8n INTEGRATION START ---
+        # Initialize action variable
+        n8n_action = "unknown"
+        
+        try:
+            print(f"🔎 Sending count {person_count} to n8n...")
+            # Capture the return value from n8n logic
+            n8n_action = await process_human_count(person_count)
+            # If function returns None/void, default to unknown
+            if not n8n_action:
+                n8n_action = "unknown"
+                
+        except Exception as e:
+            # We catch the error so detection still works even if n8n fails
+            print(f"⚠️ Warning: n8n communication failed: {e}")
+            n8n_action = "error"
+        # --- n8n INTEGRATION END ---
+
+
         # Save to history
         history_entry = {
             "timestamp": datetime.now().isoformat(),
             "filename": file.filename,
             "person_count": person_count,
+            "n8n_action": n8n_action, # Save action to history too
             "average_confidence": round(avg_confidence, 4),
             "inference_time": round(inference_time, 3)
         }
@@ -118,6 +147,7 @@ async def detect_people(file: UploadFile = File(...)):
                 "success": True,
                 "filename": file.filename,
                 "person_count": person_count,
+                "n8n_action": n8n_action, # <--- SEND ACTION TO FRONTEND
                 "average_confidence": round(avg_confidence, 4),
                 "inference_time_seconds": round(inference_time, 3),
                 "detections": detections

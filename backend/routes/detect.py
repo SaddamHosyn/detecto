@@ -1,5 +1,6 @@
 from fastapi import APIRouter, File, UploadFile, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.responses import JSONResponse
+from routes.settings import load_settings
 from ultralytics import YOLO
 from datetime import datetime
 from pathlib import Path
@@ -20,8 +21,15 @@ HISTORY_FILE = Path("detection_history.json")
 model = YOLO('yolov8m.pt')
 print(f"✅ YOLOv8 model loaded on: {model.device}")
 
-def detect_persons_in_frame(frame: np.ndarray, conf: float = 0.5, iou: float = 0.45):
+def detect_persons_in_frame(frame: np.ndarray, conf: float = None, iou: float = 0.45):
     """Reusable detection function"""
+
+  # Load settings if conf not provided
+    if conf is None:
+        settings = load_settings()
+        conf = settings.get("confidence_threshold", 0.85)
+
+
     results = model(frame, conf=conf, iou=iou, imgsz=640, augment=False)
     
     detections = []
@@ -174,7 +182,7 @@ async def detect_people(file: UploadFile = File(...)):
         
         start_time = datetime.now()
         person_count, detections, avg_confidence = detect_persons_in_frame(
-            img, conf=0.25, iou=0.45
+            img, conf=None, iou=0.45
         )
         inference_time = (datetime.now() - start_time).total_seconds()
         

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import detect, history
+from routes import detect, history, settings
 
 # Create the FastAPI app instance
 app = FastAPI(
@@ -21,6 +21,7 @@ app.add_middleware(
 # Include the route modules
 app.include_router(detect.router, prefix="/api", tags=["Detection"])
 app.include_router(history.router, prefix="/api", tags=["History"])
+app.include_router(settings.router, prefix="/api", tags=["Settings"]) 
 
 # Root endpoint to verify the API is running
 @app.get("/")
@@ -30,3 +31,6 @@ async def root():
         "status": "active",
         "docs": "/docs"
     }
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

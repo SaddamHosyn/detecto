@@ -113,7 +113,9 @@ Below is a showcase of the Detecto system in action. *(To render properly, pleas
   <summary><strong>5. Notification Pipeline (n8n & Discord)</strong></summary>
   
   <br>
-  <img src="docs/screenshots/notifications.jpg" alt="n8n workflow and Discord alerts" width="800">
+  <img src="docs/screenshots/notifications.jpg" alt="n8n workflow" width="800">
+  <br>
+  <img src="docs/screenshots/discord-alerts.jpg" alt="Discord alerts" width="400">
 </details>
 
 ## License

@@ -85,14 +85,14 @@ Below is a showcase of the Detecto system in action.
   <summary><strong>1. Detection Dashboard (Normal Status)</strong></summary>
   
   <br>
-  <img src="docs/screenshots/dashboard1.jpg" alt="Normal Detection Dashboard" width="800">
+  <img src="docs/screenshots/dashboard2.jpg" alt="Normal Detection Dashboard" width="800">
 </details>
 
 <details>
   <summary><strong>2. Detection Dashboard (Alert Status)</strong></summary>
   
   <br>
-  <img src="docs/screenshots/dashboard2.jpg" alt="Threshold Exceeded Dashboard" width="800">
+  <img src="docs/screenshots/dashboard1.jpg" alt="Threshold Exceeded Dashboard" width="800">
 </details>
 
 <details>

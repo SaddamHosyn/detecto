@@ -69,30 +69,30 @@ Detecto is an automation and safety application that monitors spaces by detectin
 
 Target performance metrics for the Detecto system (as tested on sample images):
 
-| Metric | Description | Target |
-| -- | -- | -- |
-| Detection Accuracy | Correct detections ÷ total visible persons | ≥ 85% |
-| False Positives | Non-person detections | ≤ 10% |
-| Average Inference Time | Time per image (local GPU/CPU) | ≤ 1.5s |
-| Average Confidence | Mean confidence of valid detections | ≥ 0.7 |
-| System Reliability | Handles all test images without crashing | 100% |
+| Metric                 | Description                                | Target |
+| ---------------------- | ------------------------------------------ | ------ |
+| Detection Accuracy     | Correct detections ÷ total visible persons | ≥ 85%  |
+| False Positives        | Non-person detections                      | ≤ 10%  |
+| Average Inference Time | Time per image (local GPU/CPU)             | ≤ 1.5s |
+| Average Confidence     | Mean confidence of valid detections        | ≥ 0.7  |
+| System Reliability     | Handles all test images without crashing   | 100%   |
 
 ## Screenshots
 
-Below is a showcase of the Detecto system in action. *(To render properly, please upload the attached images into the `docs/screenshots` folder as named below).*
+Below is a showcase of the Detecto system in action.
 
 <details>
   <summary><strong>1. Detection Dashboard (Normal Status)</strong></summary>
   
   <br>
-  <img src="docs/screenshots/dashboard-normal.jpg" alt="Normal Detection Dashboard" width="800">
+  <img src="docs/screenshots/dashboard1.jpg" alt="Normal Detection Dashboard" width="800">
 </details>
 
 <details>
   <summary><strong>2. Detection Dashboard (Alert Status)</strong></summary>
   
   <br>
-  <img src="docs/screenshots/dashboard-alert.jpg" alt="Threshold Exceeded Dashboard" width="800">
+  <img src="docs/screenshots/dashboard2.jpg" alt="Threshold Exceeded Dashboard" width="800">
 </details>
 
 <details>
@@ -103,17 +103,17 @@ Below is a showcase of the Detecto system in action. *(To render properly, pleas
 </details>
 
 <details>
-  <summary><strong>4. Applicaton Settings & n8n Config</strong></summary>
+  <summary><strong>4. Application Settings & n8n Config</strong></summary>
   
   <br>
-  <img src="docs/screenshots/settings.jpg" alt="Settings Page" width="800">
+  <img src="docs/screenshots/app-settings.jpg" alt="Settings Page" width="800">
 </details>
 
 <details>
   <summary><strong>5. Notification Pipeline (n8n & Discord)</strong></summary>
   
   <br>
-  <img src="docs/screenshots/notifications.jpg" alt="n8n workflow" width="800">
+  <img src="docs/screenshots/n8n.jpg" alt="n8n workflow" width="800">
   <br>
   <img src="docs/screenshots/discord-alerts.jpg" alt="Discord alerts" width="400">
 </details>

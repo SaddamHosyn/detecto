@@ -103,7 +103,7 @@ Below is a showcase of the Detecto system in action.
 </details>
 
 <details>
-  <summary><strong>4. Application Settings & n8n Config</strong></summary>
+  <summary><strong>4. Application Settings</strong></summary>
   
   <br>
   <img src="docs/screenshots/app-settings.jpg" alt="Settings Page" width="800">
